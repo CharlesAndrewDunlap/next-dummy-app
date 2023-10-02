@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -16,12 +16,67 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.content {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #fdf5e8, #eeeeee);
+}
+
+.create-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+}
+
+button {
+  margin: 10px;
+  transition: color 0.5s ease;
+}
+
+button:hover {
+  color: lightblue;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 150px;
+  height: 200px;
+  margin-left: 2%;
+  margin-right: 2%;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  @apply scale-105;
+}
+
+.cards {
+  display: flex;
+}
+
+.update-button {
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+  font-size: 10px;
+}
+
+.delete-button {
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  font-size: 10px;
+}
+
+.delete-button:hover {
+  color: lightcoral;
 }
