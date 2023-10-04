@@ -18,14 +18,16 @@ export function Create() {
             }),
         });
 
+        
         const { msg } = await res.json();
         setError(msg);
-    };
 
+    };
+   
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='comment-form'>Comment: </label>
+                <label htmlFor='comment-form'>Comment:  </label>
                 <input name='comment-form' onChange={(e) => setCommentForm(e.target.value)} value={commentForm}></input>
                 <button type='submit'>Add Card</button>
             </form>
