@@ -1,17 +1,16 @@
 import CatPage from './page1';
 
 const { trace }  = require("@opentelemetry/api");
-const { BasicTracerProvider,SimpleSpanProcessor }  = require("@opentelemetry/sdk-trace-base");
+const { BasicTracerProvider, SimpleSpanProcessor, ConsoleSpanExporter }  = require("@opentelemetry/sdk-trace-base");
 const { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-http');
-
 const collectorOptions = {
   url: 'http://localhost:9999/otel', 
 };
 
 const provider = new BasicTracerProvider();
+provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+
 const exporter = new OTLPTraceExporter(collectorOptions);
-
-
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 trace.setGlobalTracerProvider(provider);
 provider.register();
