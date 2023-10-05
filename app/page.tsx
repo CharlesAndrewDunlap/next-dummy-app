@@ -3,9 +3,11 @@ import CatPage from './page1';
 const { trace }  = require("@opentelemetry/api");
 const { BasicTracerProvider, SimpleSpanProcessor, ConsoleSpanExporter }  = require("@opentelemetry/sdk-trace-base");
 const { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-http');
+
 const collectorOptions = {
   url: 'http://localhost:9999/otel', 
 };
+
 
 const provider = new BasicTracerProvider();
 provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
@@ -15,8 +17,10 @@ provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 trace.setGlobalTracerProvider(provider);
 provider.register();
 
-export default async function Home() {
 
+
+
+export default async function Home() {
   const userData = await fetch('https://random-data-api.com/api/v2/users', {
     cache: 'no-store',
   });
@@ -27,7 +31,12 @@ export default async function Home() {
   });
   const randomUserData = await randomUser.json();
 
+  const errorData = await fetch('http://www.google.com/404', {
+    cache: 'no-store',
+  });
+  
 
+  
   return (
     <div className="content">
       <div>{parsedData.first_name}</div>
@@ -35,6 +44,5 @@ export default async function Home() {
       <CatPage/>
     </div>
   );
-
 
 }

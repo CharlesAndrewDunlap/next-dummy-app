@@ -11,7 +11,9 @@
   "dependencies": {
     "@opentelemetry/api": "^1.6.0",
     "@opentelemetry/auto-instrumentations-node": "^0.39.2",
+    "@opentelemetry/context-zone": "^1.17.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.43.0",
+    "@opentelemetry/instrumentation-fetch": "^0.43.0",
     "@opentelemetry/instrumentation-http": "^0.43.0",
     "@opentelemetry/node": "^0.24.0",
     "@opentelemetry/sdk-metrics": "^1.17.0",
