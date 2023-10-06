@@ -10,7 +10,7 @@ const { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-http'
 
 
 const collectorOptions = {
-  url: 'http://localhost:9999/otel', 
+  url: 'http://localhost:3695/otel', 
 };
 
 const provider = new BasicTracerProvider();
