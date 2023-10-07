@@ -35,7 +35,7 @@ export default async function Home() {
   const randomUserData = await randomUser.json();
 
 
-  const comments = await fetch('http://localhost:3001/api/comment', { cache: 'no-store' });
+  const comments = await fetch('http://localhost:3000/api/comment', { cache: 'no-store' });
   const data = await comments.json();
 
   
