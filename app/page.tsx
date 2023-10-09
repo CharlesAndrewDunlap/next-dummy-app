@@ -3,24 +3,6 @@ import { Card } from './components/Card'
 import { Create } from './components/Create'
 
 
-const { trace }  = require("@opentelemetry/api");
-const { BasicTracerProvider, SimpleSpanProcessor, ConsoleSpanExporter }  = require("@opentelemetry/sdk-trace-base");
-const { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-http');
-
-
-const collectorOptions = {
-  url: 'http://localhost:3695/otel', 
-};
-
-const provider = new BasicTracerProvider();
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
-
-const exporter = new OTLPTraceExporter(collectorOptions);
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-trace.setGlobalTracerProvider(provider);
-provider.register();
-
-
 
 export default async function Home() {
   const userData = await fetch('https://random-data-api.com/api/v2/users', {
