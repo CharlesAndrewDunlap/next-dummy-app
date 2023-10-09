@@ -1,5 +1,4 @@
-import CatPage from './page1';
-
+// import CatPage from './page1';
 import { Card } from './components/Card'
 import { Create } from './components/Create'
 
@@ -52,7 +51,7 @@ export default async function Home() {
       </div>
       <div>{parsedData.first_name}</div>
       <div>{randomUserData.results[0].gender}</div>
-      <CatPage/>
+      {/* <CatPage/> */}
     </div>
     
   )
