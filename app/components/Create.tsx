@@ -4,10 +4,9 @@ import React, { useState, useEffect } from 'react';
 export function Create() {
     const [commentForm, setCommentForm] = useState('');
     const [error, setError] = useState([])
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        console.log('clicked');
         const res = await fetch('api/comment', {
             method: 'POST',
             headers: {
@@ -18,12 +17,11 @@ export function Create() {
             }),
         });
 
-        
+
         const { msg } = await res.json();
         setError(msg);
-
     };
-   
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
